@@ -107,7 +107,22 @@ class MijnBoekenController extends Controller
             return redirect('/myBooks')->with("error", "Boek niet gevonden.");
         }
 
+        //boek lenen...
         DB::update('UPDATE books SET isBorrowed = 1, UserID = ? WHERE CatalogNumber = ?', [Auth::id(), $CatalogNumber]);
+
+        
+        DB::insert('INSERT INTO `uitleningen` (`ID`, `UserID`, `BookID`, `DatumUitgeleend`, `DatumIngeleverd`)
+        VALUES (NULL, ' . Auth::id() . ', ' . $CatalogNumber . ', NOW(), NOW() + INTERVAL 3 WEEK);');
+
+        //wordt vandaag uitgeleend dus huidige leendattum is nu
+        //omdat het boek over 3 weken moet worden uitgeleend is de datum dat ie ingeleverd moet worden +3 weken
+        //3 weken is hier de hardcode leentermijn.
+
+        
+
+        
+        //inserten in de tabel voor een overzicht van alle leningen (voor veel op veel relatie)...
+
 
         //ff wachten...
         sleep(2);
@@ -121,13 +136,21 @@ class MijnBoekenController extends Controller
         //logica voor het lenen van een boek...
         $book = Book::where('CatalogNumber', $CatalogNumber)->first();
 
-        if (!$book) {
-            return redirect('/myBooks')->with("error", "Boek niet gevonden.");
-        }
+        //maar dit gaat ook gwn altijd werken want op de manier waardoor er naar deze methode in de controller gelinkt wordt is 
+        //altijd een boek ander
 
         //status van het boek ingelevrd gaat op 0 omdat het boek niet meer ingeleverd is.
         //de user gaat ook op 0 omdat het boek niet meer uitgeleend is aan een user.
         DB::update('UPDATE books SET isBorrowed = 0, UserID = ? WHERE CatalogNumber = ?', [Null, $CatalogNumber]);
+
+        DB::insert('INSERT INTO `uitleningen` (`ID`, `UserID`, `BookID`, `DatumUitgeleend`, `DatumIngeleverd`)
+        VALUES (NULL, ' . Auth::id() . ', ' . $CatalogNumber . ', NOW(), NOW() + INTERVAL 3 WEEK);');
+         //wordt vandaag uitgeleend dus huidige leendattum is nu
+        //omdat het boek over 3 weken moet worden uitgeleend is de datum dat ie ingeleverd moet worden +3 weken
+        //3 weken is hier de hardcode leentermijn.
+
+
+
 
         //ff wachten...
         sleep(2);

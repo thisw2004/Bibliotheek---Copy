@@ -5,7 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card" >
-                <div class="card-header">{{ __('Catalogus') }}</div>
+                <div class="card-header">
+                    {{ __('Catalogus') }}
+                    
+
+                </div>
 
                 <div class="card-body" style="max-height: 1000px; overflow-y: auto;">
                     @if (session('status'))
