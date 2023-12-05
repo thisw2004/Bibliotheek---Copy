@@ -33,11 +33,11 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            {{-- href nog aanpassen naar mvc model --}}
-                            {{-- get index method from Mijnboeken controller,zie in web.php voor meer. --}}
-                            <a class="nav-link" href="/myBooks">{{ __('Mijn boeken') }}</a>
-                        </li>
+                        @auth
+                            <li class="nav-item">
+                                <a class="nav-link" href="/myBooks">{{ __('Mijn boeken') }}</a>
+                            </li>
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->

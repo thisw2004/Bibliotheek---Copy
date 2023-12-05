@@ -1,8 +1,22 @@
 #navbar{
     background-color: #00134d !important;
     color:white !important;
+    text-decoration: none;
 }
+
+#navbarWelcome{
+    background-color: #00134d !important;
+    color:white !important;
+    text-decoration: none;
+    width:100%;
+}
+
 
 body{
     background-color:white !important;
 }
+
+/* .hidden fixed top-0 right-0 px-6 py-4 sm:block{
+    background-color: #00134d !important;
+    color:white !important;
+} */

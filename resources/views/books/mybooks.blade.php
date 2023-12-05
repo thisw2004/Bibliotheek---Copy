@@ -21,10 +21,17 @@
                     {{-- {{ __('Boeken Overzicht ') }} <br>  --}}
                     {{-- schijnt de if niet te pakken als <in dit geval> user geen boeken geleend heeft. --}}
                         {{-- @if(!$books) checkt of de var bestaat de isempty erachter of de waarde iets  --}}
-                    @if(!$books) 
+                        @php
+                        $userId = Auth::id();
+
+                        // Haal boeken op die aan de huidige gebruiker zijn gekoppeld
+                        $books = App\Models\Book::where('UserID', $userId)->get();
+                    @endphp
+
+                    @if($books->isEmpty()) 
                         <p>Je hebt op dit moment geen boeken geleend.</p>
                         {{-- onderstaande werkt ook niet  --}}
-                        {{-- {{ __('Boeken Overzicht ') }} <br>  --}}
+                        {{-- wat als er geen boeken zijn gevonden met user id van huig ingelogde user --}}
                     @else
                         <div class="row row-cols-1 row-cols-md-3">
                             @foreach($books as $book)

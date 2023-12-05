@@ -2,9 +2,9 @@
 
 @extends('layouts.app')
 @section('content')
-@if(!$book)
+{{-- @if(!$book)
 <p>Kon geen boek vinden!</p>
-@else
+@else --}}
     <div class="card mx-auto" style="width: 70%">
         <div class="card-body">
             <h5 class="card-title">Titel: {{$book->Title}}</h5>
@@ -31,7 +31,7 @@
             </div>
         </div>
     </div>
-@endif
+{{-- @endif --}}
 @endsection                
 
 
