@@ -19,7 +19,7 @@
                     @endif
 
                     {{-- {{ __('Boeken Overzicht ') }} <br>  --}}
-                    @if(!$books)
+                    @if($books->isEmpty())
                         <p>Sorry, er zijn geen boeken in onze catalogus aanwezig op dit moment!</p>
                         
                     @else

@@ -4,23 +4,65 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            {{-- get user name and current books --}}
+            @php
+            $userName = Auth::user()->name 
+
+            @endphp
+            
+            <h2>Mijn Boeken</h2>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <a href="/home" class="btn btn-primary" style="margin-bottom:2vh">Terug</a>
+            </div>
             <div class="card" >
-                <div class="card-header">
-                    {{ __('Catalogus') }}
-                    
-
-                </div>
-
+                
                 <div class="card-body" style="max-height: 1000px; overflow-y: auto;">
+                    {{-- voor de meldingen  --}}
                     @if (session('status'))
-                        <div class="alert alert-success" role="alert">
+                        {{-- <div class="alert alert-warning alert-dismissible fade show" role="alert">
                             {{ session('status') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div> --}}
+                        {{-- <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            {{ session('status') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                          </div> --}}
+                          {{-- <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            {{ session('status') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
+
+                        <script>
+                            // Add a script to automatically close the alert after a certain duration
+                            $(document).ready(function(){
+                                window.setTimeout(function() {
+                                    $(".alert").alert('close');
+                                }, 5000); // Adjust the duration in milliseconds (e.g., 5000 for 5 seconds)
+                            });
+                        </script> --}}
+                        @if(session('success'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                {{ session('success') }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <script>
+                                // Add a script to automatically close the alert after a certain duration
+                                $(document).ready(function(){
+                                    window.setTimeout(function() {
+                                        $(".alert").alert('close');
+                                    }, 5000); // Adjust the duration in milliseconds (e.g., 5000 for 5 seconds)
+                                });
+                            </script>
+                        @endif
+
                     @endif
 
-                    {{-- {{ __('Boeken Overzicht ') }} <br>  --}}
-                    {{-- schijnt de if niet te pakken als <in dit geval> user geen boeken geleend heeft. --}}
-                        {{-- @if(!$books) checkt of de var bestaat de isempty erachter of de waarde iets  --}}
+                    
                         @php
                         $userId = Auth::id();
 
@@ -30,9 +72,11 @@
 
                     @if($books->isEmpty()) 
                         <p>Je hebt op dit moment geen boeken geleend.</p>
-                        {{-- onderstaande werkt ook niet  --}}
-                        {{-- wat als er geen boeken zijn gevonden met user id van huig ingelogde user --}}
+                        {{-- change color --}}
+                        <a href="/home" class="underlined" style="color:blue">Leen een boek</a>
                     @else
+                    <h3 class="text-center" style="padding:2vh">Hallo <b>{{$userName}}</b>, u heeft {{ $books->count() }}  boek(en) geleend!</h3>
+                        <hr>
                         <div class="row row-cols-1 row-cols-md-3">
                             @foreach($books as $book)
                                 <div class="col mb-4">

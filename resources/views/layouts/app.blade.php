@@ -24,7 +24,7 @@
         <nav class="navbar navbar-expand-md navbar-dark  shadow-sm " id="navbar">
             <div class="container" >
                 <a class="navbar-brand"  href="/home">
-                   Bibliotheek ~ Home
+                   Bibliotheek 
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -91,5 +91,12 @@
             @yield('content')
         </main>
     </div>
+
+    {{-- voor het wegfaden of wegklikken van de meldingen component? --}}
+    <!-- Bootstrap JS and Popper.js -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>

@@ -18,15 +18,10 @@ class MijnBoekenController extends Controller
      */
     public function index()
     {
-        //$userId = Auth::id();
-        // $userid = Auth::user()->id;
-        // $books = Book::where('id',$userid)->get();
-        // return view('home', ['books' => $books]);
-        //hoe doe je het als je boeken wil weergeven op basis van userid?
-        //$userId = Auth::id(); // Alternatively, you can use Auth::user()->id directly
+        
         $id = Auth::id();
-    $books = Book::where('UserID', $id)->get(); // Assuming 'user_id' is the foreign key in your books table
-    return view('home', ['books' => $books]);
+    $books = Book::where('UserID', $id)->get(); 
+    return view('books.mybooks', ['books' => $books]);
     }
 
     /**
@@ -108,6 +103,7 @@ class MijnBoekenController extends Controller
         }
 
         //boek lenen...
+        //inserten in de tabel voor een overzicht van alle leningen (voor veel op veel relatie)..
         DB::update('UPDATE books SET isBorrowed = 1, UserID = ? WHERE CatalogNumber = ?', [Auth::id(), $CatalogNumber]);
 
         
@@ -118,26 +114,16 @@ class MijnBoekenController extends Controller
         //omdat het boek over 3 weken moet worden uitgeleend is de datum dat ie ingeleverd moet worden +3 weken
         //3 weken is hier de hardcode leentermijn.
 
-        
-
-        
-        //inserten in de tabel voor een overzicht van alle leningen (voor veel op veel relatie)...
-
-
         //ff wachten...
-        sleep(2);
+        sleep(1);
 
         return redirect('/myBooks')->with("success", "Je hebt het boek geleend!");
     }
 
     public function handIn($CatalogNumber)
-
     {
         //logica voor het lenen van een boek...
         $book = Book::where('CatalogNumber', $CatalogNumber)->first();
-
-        //maar dit gaat ook gwn altijd werken want op de manier waardoor er naar deze methode in de controller gelinkt wordt is 
-        //altijd een boek ander
 
         //status van het boek ingelevrd gaat op 0 omdat het boek niet meer ingeleverd is.
         //de user gaat ook op 0 omdat het boek niet meer uitgeleend is aan een user.
@@ -149,11 +135,8 @@ class MijnBoekenController extends Controller
         //omdat het boek over 3 weken moet worden uitgeleend is de datum dat ie ingeleverd moet worden +3 weken
         //3 weken is hier de hardcode leentermijn.
 
-
-
-
-        //ff wachten...
-        sleep(2);
+        //ff wachten... anders gaat het iets te snel...
+        sleep(1);
 
         return redirect('/myBooks')->with("success", "Je hebt het boek weer ingeleverd!");
     }
