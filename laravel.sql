@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 04 dec 2023 om 19:17
+-- Gegenereerd op: 10 dec 2023 om 00:13
 -- Serverversie: 10.4.28-MariaDB
 -- PHP-versie: 8.2.4
 
@@ -43,7 +43,7 @@ CREATE TABLE `books` (
 
 INSERT INTO `books` (`CatalogNumber`, `Title`, `Description`, `ISBN`, `IsBorrowed`, `UserID`, `Author`) VALUES
 (11, 'De Avonturen van Alice in Wonderland', 'Een klassiek verhaal over een meisje dat een wonderbaarlijke wereld ontdekt.', 978, 0, NULL, 'Lewis Carroll'),
-(12, 'De Grote Gatsby', 'Een verhaal over rijkdom, liefde en decadentie in de jaren 1920.', 978, 1, 2, 'F. Scott Fitzgerald'),
+(12, 'De Grote Gatsby', 'Een verhaal over rijkdom, liefde en decadentie in de jaren 1920.', 978, 0, NULL, 'F. Scott Fitzgerald'),
 (13, 'Honderd jaar eenzaamheid', 'Een epische saga over de opkomst en ondergang van de Buendía-familie.', 978, 0, NULL, 'Gabriel García Márquez'),
 (14, 'De Hobbit', 'Het avontuur van Bilbo Baggins in Midden-aarde.', 978, 0, NULL, 'J.R.R. Tolkien'),
 (15, 'Pride and Prejudice', 'Een romantisch verhaal over de zoektocht naar liefde en acceptatie.', 978, 0, NULL, 'Jane Austen'),
@@ -142,7 +142,36 @@ CREATE TABLE `uitleningen` (
 INSERT INTO `uitleningen` (`ID`, `UserID`, `BookID`, `DatumUitgeleend`, `DatumIngeleverd`) VALUES
 (34237, 3, 11, '2023-12-03 00:27:57', '2023-12-24 00:27:57'),
 (34238, 3, 11, '2023-12-03 00:29:38', '2023-12-24 00:29:38'),
-(34239, 3, 11, '2023-12-03 00:33:33', '2023-12-24 00:33:33');
+(34239, 3, 11, '2023-12-03 00:33:33', '2023-12-24 00:33:33'),
+(34240, 2, 11, '2023-12-06 00:06:42', '2023-12-27 00:06:42'),
+(34241, 2, 11, '2023-12-06 00:06:44', '2023-12-27 00:06:44'),
+(34242, 2, 11, '2023-12-06 00:06:46', '2023-12-27 00:06:46'),
+(34243, 2, 11, '2023-12-06 00:06:49', '2023-12-27 00:06:49'),
+(34244, 2, 11, '2023-12-06 00:06:51', '2023-12-27 00:06:51'),
+(34245, 2, 11, '2023-12-06 00:06:53', '2023-12-27 00:06:53'),
+(34246, 2, 11, '2023-12-06 00:06:55', '2023-12-27 00:06:55'),
+(34247, 2, 13, '2023-12-06 00:07:23', '2023-12-27 00:07:23'),
+(34248, 2, 14, '2023-12-06 00:07:30', '2023-12-27 00:07:30'),
+(34249, 2, 16, '2023-12-06 00:13:30', '2023-12-27 00:13:30'),
+(34250, 2, 12, '2023-12-06 00:17:16', '2023-12-27 00:17:16'),
+(34251, 2, 11, '2023-12-06 00:20:29', '2023-12-27 00:20:29'),
+(34252, 2, 13, '2023-12-06 00:21:37', '2023-12-27 00:21:37'),
+(34253, 2, 14, '2023-12-06 00:23:10', '2023-12-27 00:23:10'),
+(34254, 2, 16, '2023-12-06 00:24:42', '2023-12-27 00:24:42'),
+(34255, 2, 11, '2023-12-06 00:28:49', '2023-12-27 00:28:49'),
+(34256, 2, 11, '2023-12-06 00:29:44', '2023-12-27 00:29:44'),
+(34257, 2, 11, '2023-12-06 00:31:49', '2023-12-27 00:31:49'),
+(34258, 2, 11, '2023-12-06 00:36:18', '2023-12-27 00:36:18'),
+(34259, 2, 11, '2023-12-06 00:36:26', '2023-12-27 00:36:26'),
+(34260, 2, 11, '2023-12-06 00:36:59', '2023-12-27 00:36:59'),
+(34261, 2, 14, '2023-12-06 00:37:08', '2023-12-27 00:37:08'),
+(34262, 2, 14, '2023-12-06 00:37:13', '2023-12-27 00:37:13'),
+(34263, 2, 14, '2023-12-06 00:39:10', '2023-12-27 00:39:10'),
+(34264, 2, 14, '2023-12-06 00:41:48', '2023-12-27 00:41:48'),
+(34265, 2, 11, '2023-12-06 01:00:43', '2023-12-27 01:00:43'),
+(34266, 2, 11, '2023-12-10 00:10:55', '2023-12-31 00:10:55'),
+(34267, 2, 12, '2023-12-10 00:13:01', '2023-12-31 00:13:01'),
+(34268, 2, 11, '2023-12-10 00:13:11', '2023-12-31 00:13:11');
 
 -- --------------------------------------------------------
 
@@ -166,7 +195,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(2, 'test', 'test@test.nl', NULL, '$2y$10$9NUPkvsPv4DnxyB24wGCbuDYmdDluwseMeI0seo.nugg52Ys6imli', 'pCogUKUwWRLpD0BqbLC8JPJ6aoHo2hWbjEqeTqO28WGkatVGZZZBIiPm6lIv', '2023-11-25 18:09:10', '2023-11-25 18:09:10'),
+(2, 'test', 'test@test.nl', NULL, '$2y$10$9NUPkvsPv4DnxyB24wGCbuDYmdDluwseMeI0seo.nugg52Ys6imli', 'KxodqaDHHrYMponLUvIfgagDLFncvD587HYopcIZSIMM3ICRQ3W4XPFaw6Ba', '2023-11-25 18:09:10', '2023-11-25 18:09:10'),
 (3, 'thirza', 'tdc.swijnenburg@student.avans.nl', NULL, '$2y$10$TH4dbj4sbDe4iXj7gguBBO69OqQez3lxApxGSu7239UDeCT6NqT82', 'w87AmUaK6WLXrrKmAIqI9RMnuRQt0ylJStnHlBOICK8vym8ZN1Zl6IikYHIJ', '2023-11-27 21:07:00', '2023-11-27 21:07:00');
 
 --
@@ -252,7 +281,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT voor een tabel `uitleningen`
 --
 ALTER TABLE `uitleningen`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34240;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34269;
 
 --
 -- AUTO_INCREMENT voor een tabel `users`

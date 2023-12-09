@@ -10,11 +10,19 @@
 
                 
                 <div class="flex text-center justify-center pt-8 sm:justify-start sm:pt-0" style="padding-top:20vh">
-                    <h1>Welcome!</h1>
+                    <h1>Welkom!</h1>
                 </div>
 
-                <div class="mt-8 bg-white   ">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta reprehenderit dignissimos quos consequatur debitis cum dolores dolorem cumque corporis mollitia, corrupti eligendi ipsum tempore aliquid temporibus quibusdam amet. Aliquam aut repellendus repellat. Hic consequuntur nam doloribus dolorum. Enim quia unde similique amet repellat, est perspiciatis quod delectus consequatur illo ad beatae neque molestiae aspernatur? Odio ratione, expedita eius dolorem error quasi omnis atque sint? Aliquam suscipit officia nihil consequuntur quidem ab aliquid, dolorem alias amet quam hic non nulla laudantium expedita soluta a praesentium. Veritatis qui rerum ab, saepe consequuntur omnis inventore perspiciatis tempore. Exercitationem, eos qui harum itaque error dolor illum ab eligendi nihil alias accusantium dolorum. Ipsam, deleniti quasi earum iusto hic, perferendis nemo quae dolore distinctio ea accusantium. Minima voluptatem, incidunt iure velit sequi provident ipsum. Quidem dolores aperiam suscipit necessitatibus dolorum deserunt asperiores optio quaerat, cum ipsam quis accusantium ipsa, dignissimos porro, voluptates quam commodi omnis ea sit. Fuga tempore sed tenetur rem iure provident repudiandae illo ducimus quasi. In, excepturi aliquid a dolorum rem quam ad aliquam, distinctio esse eius corporis tempora nesciunt consequuntur, temporibus odio sint quidem. Assumenda enim deserunt, incidunt aliquam accusantium quisquam nemo debitis odit neque repellendus! Exercitationem officiis soluta mollitia quas?</p>
+                <div style="padding:5vh">
+                    <p >
+                        Welkom op het platform van onze innovatieve bibliotheek, waar we leesplezier combineren met een efficiënte boekadministratie. Ons doel is om lezers een naadloze en gebruiksvriendelijke ervaring te bieden, waardoor het ontdekken van nieuwe werelden binnen handbereik is. In een tijdperk van voortdurende technologische vooruitgang hebben we besloten om onze bibliotheek te transformeren tot een eigentijdse ontmoetingsplaats voor kennis en vermaak.
+                        
+                        Met de nadruk op toegankelijkheid en gemak willen we onze bezoekers een platform bieden dat aansluit bij hun moderne levensstijl. Of je nu een fervent lezer bent op zoek naar literaire schatten of gewoon wilt genieten van ontspannende momenten tussen de boekenplanken, onze bibliotheek staat voor je klaar.
+                        
+                        De fusie van leesplezier en efficiënte boekadministratie vormt de kern van onze missie. We introduceren geavanceerde systemen om het lenen, retourneren en beheren van boeken soepeler te laten verlopen. Door deze verbeteringen willen we niet alleen een rijke leeservaring bieden, maar ook bijdragen aan een gestroomlijnde interactie tussen lezers en onze bibliotheekfaciliteiten.
+                        
+                        Ontdek, leen, en geniet van de fascinerende wereld van woorden in onze vernieuwde bibliotheek – waar elk bezoek een ontdekkingsreis wordt. Welkom bij de toekomst van lezen en leren!
+                    </p>
                 </div>
                         
                   

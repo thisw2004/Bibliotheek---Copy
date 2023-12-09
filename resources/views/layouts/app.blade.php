@@ -17,6 +17,8 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    {{-- center the card vertically --}}
+    
 </head>
 <body>
     
@@ -87,7 +89,7 @@
         </nav>
         {{-- some space hiertussen kan denk ik geen kwaad. --}}
         @include('components/meldingen')
-        <main class="py-4">
+        <main class="py-4 pt-5" style="padding-top:20vh; max-height:80%;">
             @yield('content')
         </main>
     </div>
