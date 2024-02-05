@@ -28,7 +28,8 @@ Route::resource('books',App\Http\Controllers\MijnBoekenController::class); //rou
 
 
 Route::get('/myBooks', [App\Http\Controllers\MijnBoekenController::class, 'index'])->name('/books/mybooks');
-
+//hier nu boeke meegeven
+Route::get('/JustBorrowed', [App\Http\Controllers\MijnBoekenController::class, 'JustBorrowed']);
 //geselecteerde boek weergeven
 Route::get('/{CatalogNumber}', [MijnBoekenController::class, 'show'])->name('show');
 
@@ -38,8 +39,7 @@ Route::get('/loan/{CatalogNumber}', [MijnBoekenController::class, 'loan'])->name
 //boek inleveren
 Route::get('/handIn/{CatalogNumber}', [MijnBoekenController::class, 'handIn'])->name('HandIn');
 
+//Route::get('/JustBorrowed', [MijnBoekenController::class, 'JustBorrowed'])->name('JustBorrowed');
 
 
 //deze werkt nu ook nog op boeken bekijken,toepassen op boeken lenen
-//Route::get('/{CatalogNumber}', [MijnBoekenController::class, 'loan'])->name('loan');
-//route om het boek te bekijken (show) en om het boek uit te lenen (loan) lopen door elkaar

@@ -1,27 +1,63 @@
-#navbar{
+#navbar, #navbarWelcome, #navbarHtml {
     background-color: #00134d !important;
-    color:white !important;
+    color: white !important;
     text-decoration: none;
 }
 
-#navbarWelcome{
-    background-color: #00134d !important;
-    color:white !important;
-    text-decoration: none;
-    width:100%;
+.body {
+    background-color: white !important;
 }
 
-
-.body{
-    background-color:white !important;
-    /* display: flex;
-            /* align-items: center; */
-            /* justify-content: center;
-            height: 100vh;
-            margin: 0; */ 
+#JustBorrowedTitle {
+    /* TODO: */
 }
 
-/* .hidden fixed top-0 right-0 px-6 py-4 sm:block{
-    background-color: #00134d !important;
-    color:white !important;
-} */
+#BackBtnJB {
+    margin-bottom: 10px !important;
+    float: right !important;
+}
+
+.button-container {
+    margin-bottom: 10px !important;
+    margin-right:30px !important;
+}
+
+table, th, td {
+    border: 1px solid black !important;
+    border-collapse: collapse;
+}
+
+#BookOTMimg, #BookOTMimgHome {
+    width: 90px;
+    height: 90px;
+     /* Adjust as needed */
+}
+
+#BookOTMtitle {
+    padding-top: 50px;
+    text-align: center;
+}
+
+#TxtContainer {
+    margin-left: 35%;
+    width: 700px;
+    height: 600px;
+    background-color: #00134d;
+    border-radius: 10%;
+    box-shadow: 1px 2px 3px 4px #00134d;
+}
+
+#BookTxt {
+    color: white;
+    font-size: 20px;
+    padding: 30px;
+    padding-top: 50px;
+}
+
+#hr {
+    margin-top: 10%;
+    margin-left: 35%;
+    width: 700px;
+    height: 1px;
+    background-color: #00134d;
+}

@@ -4,11 +4,16 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            {{-- voor veel op veel relatie --}}
+            <h1 id="JustBorrowedTitle">Bekijk <a href="/JustBorrowed">hier</a> welke boeken zojuist geleend zijn!</h1>
+            <a href="{{ asset('html/BookOTM.html') }}">
+                <img id="BookOTMimgHome" src="{{ asset('img/BookOTM.jpeg') }}">
+            </a>
+            
             <div class="card" >
                 <div class="card-header">
-                    {{ __('Catalogus') }}
-                    
 
+                    {{ __('Catalogus') }}
                 </div>
 
                 <div class="card-body" style="max-height: 1000px; overflow-y: auto;">
@@ -18,7 +23,7 @@
                         </div>
                     @endif
 
-                    {{-- {{ __('Boeken Overzicht ') }} <br>  --}}
+                    
                     @if($books->isEmpty())
                         <p>Sorry, er zijn geen boeken in onze catalogus aanwezig op dit moment!</p>
                         

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Book;
+use App\Models\Uitlening;
 use Illuminate\Support\Facades\DB;
 //use Auth;
 
@@ -19,7 +20,7 @@ class MijnBoekenController extends Controller
     public function index()
     {
         
-        $id = Auth::id();
+    $id = Auth::id();
     $books = Book::where('UserID', $id)->get(); 
     return view('books.mybooks', ['books' => $books]);
     }
@@ -139,6 +140,14 @@ class MijnBoekenController extends Controller
         sleep(1);
 
         return redirect('/myBooks')->with("success", "Je hebt het boek weer ingeleverd!");
+    }
+
+    public function JustBorrowed(){
+        //aprte model maken vor uitleningen? structuur is zelfde van book model ivm fillable...
+        $books = Uitlening::all();
+        return view('books.justborrowed', ['books' => $books]);
+        //return view('books.justborrowed');
+        
     }
 
 }
