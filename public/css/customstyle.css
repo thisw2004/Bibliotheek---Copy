@@ -8,34 +8,14 @@
     background-color: white !important;
 }
 
-#JustBorrowedTitle {
-    /* TODO: */
-}
-
-#BackBtnJB {
-    margin-bottom: 10px !important;
-    float: right !important;
-}
-
-.button-container {
-    margin-bottom: 10px !important;
-    margin-right:30px !important;
-}
-
 table, th, td {
     border: 1px solid black !important;
     border-collapse: collapse;
 }
 
-#BookOTMimg, #BookOTMimgHome {
-    width: 90px;
-    height: 90px;
-     /* Adjust as needed */
-}
-
-#BookOTMtitle {
-    padding-top: 50px;
-    text-align: center;
+hr{
+    margin-top:100px !important;
+    margin-bottom:100px !important;
 }
 
 #TxtContainer {
@@ -61,3 +41,168 @@ table, th, td {
     height: 1px;
     background-color: #00134d;
 }
+
+#BackBtnJB{
+    width:50px !important;
+    height:50px !important;
+    margin-left:1300px;
+    padding-top:100px;
+    
+}
+
+#BackBtnJBImg{
+    width:100px;
+    height:100px;
+}
+
+#FeeCheck {
+    float: right;
+    margin-top: 200px; /* Keep the same margin-top as the Book of the Month image */
+    width: 300px;
+    margin-left: 20px;
+    background-color: #87CEEB;
+    border-radius: 10%;
+    
+}
+
+/* BookOTM */
+/* define variabeles */
+:root{
+    --leftSpace : 30%;
+}
+
+/* font import */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+#BookOTMnav {
+    background-color: #00134d;
+    color: white;
+    text-align: center;
+    margin:0px;
+     padding : 0px;
+     height:100px;
+     align-items: center; 
+    margin-bottom: 0;
+    display: flex;
+
+}
+
+#BookOTMnavUL {
+    list-style-type: none;
+    padding: 0 !important;
+    align-items: center; 
+    display: flex;
+    justify-content: center;
+    margin-left:45%;
+    
+}
+
+#BookOTMnavULli {
+    display: inline;
+    margin-right: 50px;
+}
+
+#BookOTMnavULli:hover{
+    
+    text-decoration: underline;
+    
+}
+
+#BookOTMnavULliA,#BookOTMnavULliAb {
+    color: white;
+    text-decoration: none;
+    margin-top:100px !important;
+}
+
+#BookOTMtitle {
+    padding-top: 50px;
+    text-align: center;
+    margin-left: 0%;
+}
+
+#BookOTMimg {
+    width: 90px;
+    height: 90px;
+    float: right;
+    padding-right: 60px;
+}
+
+#hrOTM {
+    margin-top: 10px;
+    margin-left: var(--leftSpace);
+    width: 700px;
+    height: 1px;
+    background-color: #00134d;
+}
+
+#TxtContainerOTM {
+    margin-left: 20%;
+    width: 700px;
+    height: 600px;
+    background-color: #00134d;
+    border-radius: 10%;
+    margin-top:0px;
+    float:left;
+    margin-bottom:50px;
+}
+
+#BookTxtOTM {
+    color: white;
+    font-size: 20px;
+    padding: 30px;
+    padding-top: 175px;
+    
+}
+
+#sign,#sign2{
+    color: white;
+    font-size: 20px;
+    padding: 30px;
+    padding-top: 50px;
+    text-align: center;
+}
+
+#BookInfo{
+    margin-left: 65%;
+    width: 400px;
+    height: 600px;
+    background-color: #87CEEB;
+    border-radius: 13%;
+    margin-top:5%;
+    
+}
+
+#BookImg{
+    width: 150px;
+    height:215px;
+    margin-top:70px;
+    margin-left:30%;
+}
+
+#GotoBookBtn{
+    height:50px;
+    width:150px;
+    background-color:#00134d;
+    color:white;
+    margin-left:30%;
+    border-radius: 5%;
+    margin-top:20px;
+}
+
+#GotoBookLinkText{
+    text-decoration:none;
+    color:white;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+
+

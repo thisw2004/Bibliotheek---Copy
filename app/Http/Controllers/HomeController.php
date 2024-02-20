@@ -32,7 +32,7 @@ class HomeController extends Controller
 
     public function loan($CatalogNumber)
     {
-        //logica voor het lenen van een boek...
+        
         $book = Book::find($CatalogNumber);
 
         if (!$book) {
@@ -47,4 +47,5 @@ class HomeController extends Controller
 
         return redirect('/myBooks')->with("success", "Je hebt het boek geleend!");
     }
+
 }

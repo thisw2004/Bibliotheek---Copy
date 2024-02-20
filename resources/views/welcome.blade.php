@@ -5,9 +5,6 @@
     
     <div class="row justify-content-center" >
         <div class="col-md-8 ">
-            
-                
-
                 
                 <div class="flex text-center justify-center pt-8 sm:justify-start sm:pt-0" style="padding-top:20vh">
                     <h1>Welkom!</h1>
@@ -23,11 +20,7 @@
                         
                         Ontdek, leen, en geniet van de fascinerende wereld van woorden in onze vernieuwde bibliotheek – waar elk bezoek een ontdekkingsreis wordt. Welkom bij de toekomst van lezen en leren!
                     </p>
-                </div>
-                        
-                  
-                      
-                
+                </div>       
             
         </div>
     </div>

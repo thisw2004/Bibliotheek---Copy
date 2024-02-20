@@ -40,6 +40,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/myBooks">{{ __('Mijn boeken') }}</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin">{{ __('Beheer Boeken') }}</a>
+                            </li>
                         @endauth
                     </ul>
 

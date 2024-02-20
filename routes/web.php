@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MijnBoekenController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,26 +21,30 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
-//books komen in de home view (die verschijnt na succesvolle inlog),en gebruikt dus de homecontroller
+ 
+//books will be displayed in the home view (which will appear after a succesfull login),so it uses the homeController
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('books',App\Http\Controllers\HomeController::class); //route voor alle methoden van de home controller
-Route::resource('books',App\Http\Controllers\MijnBoekenController::class); //route voor alle methoden van de my book controller
 
-
+//myBooks
 Route::get('/myBooks', [App\Http\Controllers\MijnBoekenController::class, 'index'])->name('/books/mybooks');
-//hier nu boeke meegeven
+
+
+//route to admin page,admin.blade.php
+Route::get('/admin', [App\Http\Controllers\UserController::class, 'GetAllUsers']);
+
+//display all recent lend books
 Route::get('/JustBorrowed', [App\Http\Controllers\MijnBoekenController::class, 'JustBorrowed']);
-//geselecteerde boek weergeven
+
+//DYNAMIC ROUTES
+//display selected book
 Route::get('/{CatalogNumber}', [MijnBoekenController::class, 'show'])->name('show');
 
-//boek lenen
+//lend book
 Route::get('/loan/{CatalogNumber}', [MijnBoekenController::class, 'loan'])->name('loan');
 
-//boek inleveren
+//hand in book
 Route::get('/handIn/{CatalogNumber}', [MijnBoekenController::class, 'handIn'])->name('HandIn');
 
-//Route::get('/JustBorrowed', [MijnBoekenController::class, 'JustBorrowed'])->name('JustBorrowed');
 
-
-//deze werkt nu ook nog op boeken bekijken,toepassen op boeken lenen
+//routes for the buttons on the admin pagina.
+Route::get('/user/{id}', [UserController::class, 'GetUserById']);

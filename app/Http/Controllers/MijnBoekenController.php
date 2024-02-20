@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Book;
 use App\Models\Uitlening;
 use Illuminate\Support\Facades\DB;
-//use Auth;
+
 
 class MijnBoekenController extends Controller
 {
@@ -19,12 +19,15 @@ class MijnBoekenController extends Controller
      */
     public function index()
     {
-        
-    $id = Auth::id();
-    $books = Book::where('UserID', $id)->get(); 
-    return view('books.mybooks', ['books' => $books]);
-    }
+        //get id from current user
+        $id = Auth::id();
+        //get books from current user
+        $books = Book::where('UserID', $id)->get(); 
+        //return view with books
+        return view('books.mybooks', ['books' => $books]);
 
+    }
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -54,8 +57,9 @@ class MijnBoekenController extends Controller
      */
     public function show($CatalogNumber)
     {
-        //$book = Book::find($CatalogNumber);
+        //select book with the specified catalognumber
         $book = Book::where('CatalogNumber', $CatalogNumber)->first();
+        //return the book to the view
         return view('books.book')->with('book',$book);
     }
 
@@ -96,57 +100,58 @@ class MijnBoekenController extends Controller
     public function loan($CatalogNumber)
 
     {
-        //logica voor het lenen van een boek...
+        //select the book with the specified catalognumber.
         $book = Book::where('CatalogNumber', $CatalogNumber)->first();
 
         if (!$book) {
             return redirect('/myBooks')->with("error", "Boek niet gevonden.");
         }
 
-        //boek lenen...
-        //inserten in de tabel voor een overzicht van alle leningen (voor veel op veel relatie)..
+       //update the status of the book and insert it in the all loans table (for the many on many relationship)
+        
         DB::update('UPDATE books SET isBorrowed = 1, UserID = ? WHERE CatalogNumber = ?', [Auth::id(), $CatalogNumber]);
 
         
         DB::insert('INSERT INTO `uitleningen` (`ID`, `UserID`, `BookID`, `DatumUitgeleend`, `DatumIngeleverd`)
         VALUES (NULL, ' . Auth::id() . ', ' . $CatalogNumber . ', NOW(), NOW() + INTERVAL 3 WEEK);');
 
-        //wordt vandaag uitgeleend dus huidige leendattum is nu
-        //omdat het boek over 3 weken moet worden uitgeleend is de datum dat ie ingeleverd moet worden +3 weken
-        //3 weken is hier de hardcode leentermijn.
+        //today is NOW(), and the loan period is 3 weeks,and is now hardcoded.
 
-        //ff wachten...
+        //wait one second...
         sleep(1);
 
+        //return to view with succes report.
         return redirect('/myBooks')->with("success", "Je hebt het boek geleend!");
     }
 
     public function handIn($CatalogNumber)
     {
-        //logica voor het lenen van een boek...
+        //select book with the specified catalognumber
         $book = Book::where('CatalogNumber', $CatalogNumber)->first();
 
-        //status van het boek ingelevrd gaat op 0 omdat het boek niet meer ingeleverd is.
-        //de user gaat ook op 0 omdat het boek niet meer uitgeleend is aan een user.
+        //change state from the book to 0
+        
         DB::update('UPDATE books SET isBorrowed = 0, UserID = ? WHERE CatalogNumber = ?', [Null, $CatalogNumber]);
 
+        //insert the handin in the loans table
         DB::insert('INSERT INTO `uitleningen` (`ID`, `UserID`, `BookID`, `DatumUitgeleend`, `DatumIngeleverd`)
         VALUES (NULL, ' . Auth::id() . ', ' . $CatalogNumber . ', NOW(), NOW() + INTERVAL 3 WEEK);');
-         //wordt vandaag uitgeleend dus huidige leendattum is nu
-        //omdat het boek over 3 weken moet worden uitgeleend is de datum dat ie ingeleverd moet worden +3 weken
-        //3 weken is hier de hardcode leentermijn.
+       
 
-        //ff wachten... anders gaat het iets te snel...
+        //today is NOW(), and the loan period is 3 weeks,and is now hardcoded.
+
+        //wait one second...
         sleep(1);
 
+        //return to view with succes report
         return redirect('/myBooks')->with("success", "Je hebt het boek weer ingeleverd!");
     }
 
     public function JustBorrowed(){
-        //aprte model maken vor uitleningen? structuur is zelfde van book model ivm fillable...
+        //select all loand books
         $books = Uitlening::all();
+        //return the books to the view
         return view('books.justborrowed', ['books' => $books]);
-        //return view('books.justborrowed');
         
     }
 
