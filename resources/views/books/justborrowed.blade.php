@@ -3,18 +3,13 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            {{-- voor veel op veel relatie --}}
+            {{-- veel op veel relatie --}}
             <h1>Just borrowed</h1>
-            {{-- hier back link --}}
-            {{-- <div class="button-container">
-                <a href="{{ asset('html/BookOTM.html') }}">
-                    <img id="BookOTMimgHome" src="{{ asset('img/BookOTM.jpeg') }}">
-                </a>
-            </div> --}}
             
-            <div class="button-container">
-                <a href="/home" id="BackBtnJB">
-                    <img id="BookOTMimgHome" src="{{ asset('img/left-arrow.png') }}">
+       
+            <div class="button-container" id="BackBtnJB" >
+                <a href="/home" >
+                    <img  id="BackBtnJBImg" src="{{ asset('img/left-arrow.png') }}">
                 </a>
             </div>
 
@@ -32,7 +27,7 @@
                         </div>
                     @endif
 
-                    {{-- werkt nog niet helemaal lekker... --}}
+                    
                     @if($books->isEmpty())
                         <p>Sorry, er zijn geen recente uitleningen gevonden!</p>
                     @else
@@ -41,7 +36,7 @@
                                 <tr> 
                                     <th>Leningsnummer:</th>
                                     <th>Geleend door:</th>
-                                    <th>Titel:</th>
+                                    <th>Boek-ID:</th>
                                     <th>Uitgeleend op:</th>
                                     <th>Ingeleverd op:</th>
                                 </tr>
