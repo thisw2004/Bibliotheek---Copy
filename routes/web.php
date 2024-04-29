@@ -19,9 +19,9 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     return view('welcome');
 });
-
+/*wqd*/
 Auth::routes();
- 
+
 //books will be displayed in the home view (which will appear after a succesfull login),so it uses the homeController
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
