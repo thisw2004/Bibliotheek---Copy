@@ -20,7 +20,7 @@
                     {{ __('Catalogus') }}
                 </div>
 
-                <div class="card-body" style="max-height: 1000px; overflow-y: auto;">
+                <div class="card-body" style="max-height: 700px; overflow-y: auto;">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
