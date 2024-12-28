@@ -48,7 +48,3 @@
     </div>
 </div>
 @endsection
-<<<<<<< HEAD
-=======
-{{-- test --}}
->>>>>>> 57add49a4017d5f3ec1af8308d5912b36d2cea09
