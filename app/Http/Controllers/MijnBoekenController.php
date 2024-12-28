@@ -133,18 +133,13 @@ class MijnBoekenController extends Controller
         
         DB::update('UPDATE books SET isBorrowed = 0, UserID = ? WHERE CatalogNumber = ?', [Null, $CatalogNumber]);
 
-        $addBookQry = 'INSERT INTO `uitleningen` (`ID`, `UserID`, `BookID`, `DatumUitgeleend`, `DatumIngeleverd`)
-               VALUES (NULL, ' . Auth::id() . ', ' . $CatalogNumber . ', NOW(), DATE_ADD(NOW(), INTERVAL 3 WEEK))';
+        DB::insert('INSERT INTO `uitleningen` (`ID`, `UserID`, `BookID`, `DatumUitgeleend`, `DatumIngeleverd`)
+        VALUES (NULL, ' . Auth::id() . ', ' . $CatalogNumber . ', NOW(), NOW() + INTERVAL 3 WEEK);');
+         //wordt vandaag uitgeleend dus huidige leendattum is nu
+        //omdat het boek over 3 weken moet worden uitgeleend is de datum dat ie ingeleverd moet worden +3 weken
+        //3 weken is hier de hardcode leentermijn.
 
-        // Debugging to verify the query before executing
-        //dd($addBookQry);
-
-        // Execute the query directly
-        DB::statement($addBookQry);
-
-        //today is NOW(), and the loan period is 3 weeks,and is now hardcoded.
-
-        //wait one second...
+        //ff wachten... anders gaat het iets te snel...
         sleep(1);
 
         //return to view with succes report
