@@ -133,10 +133,14 @@ class MijnBoekenController extends Controller
         
         DB::update('UPDATE books SET isBorrowed = 0, UserID = ? WHERE CatalogNumber = ?', [Null, $CatalogNumber]);
 
-        //insert the handin in the loans table
-        DB::insert('INSERT INTO `uitleningen` (`ID`, `UserID`, `BookID`, `DatumUitgeleend`, `DatumIngeleverd`)
-        VALUES (NULL, ' . Auth::id() . ', ' . $CatalogNumber . ', NOW(), NOW() + INTERVAL 3 WEEK);');
-       
+        $addBookQry = 'INSERT INTO `uitleningen` (`ID`, `UserID`, `BookID`, `DatumUitgeleend`, `DatumIngeleverd`)
+               VALUES (NULL, ' . Auth::id() . ', ' . $CatalogNumber . ', NOW(), DATE_ADD(NOW(), INTERVAL 3 WEEK))';
+
+        // Debugging to verify the query before executing
+        //dd($addBookQry);
+
+        // Execute the query directly
+        DB::statement($addBookQry);
 
         //today is NOW(), and the loan period is 3 weeks,and is now hardcoded.
 

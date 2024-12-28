@@ -14,12 +14,13 @@ class CreateBooksTable extends Migration
     public function up()
     {
         Schema::create('books', function (Blueprint $table) {
-            $table->integer('CatalogNumber')->autoIncrement(); // Auto-incrementing primary key
+            $table->id();
+            $table->unsignedBigInteger('CatalogNumber'); // Auto-incrementing primary key
             $table->string('Title');
             $table->text('Description');
             $table->bigInteger('ISBN');
             $table->boolean('IsBorrowed')->default(0);
-            $table->unsignedBigInteger('UserID');
+            $table->unsignedBigInteger('UserID')->nullable();
             $table->string('Author');
             //timestamps zijn misschien toch wel handig ;)
             $table->timestamps(); 
