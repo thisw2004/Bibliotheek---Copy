@@ -43,13 +43,11 @@
                 </form>
                 <p style="text-align:center; margin-top:5px;" id="lateFeeResult"></p>
             
-                <!-- Include jQuery library (if not already included) -->
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
                 <script src="{{ asset('js/library.js') }}"></script>
                 <script src="{{ asset('js/app.js') }}"></script>
             </div>
 
-            
             <div class="card" >
                 <div class="card-header">
                     {{ __('Catalogus') }}
